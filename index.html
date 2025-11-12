@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HavFam</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>កម្មវិធីរករបៀបហៅបងប្អូន</h2>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- Step 1: Generation -->
+        <div id="step-1" class="step active">
+            <label>តើបុគ្គលនោះនៅជំនាន់ណា?</label>
+            <div class="button-options">
+                <button class="option-btn" onclick="selectGeneration('self')">ជំនាន់របស់អ្នក</button>
+                <button class="option-btn" onclick="selectGeneration('parent')">ជំនាន់ឪពុកម្តាយ</button>
+            </div>
+        </div>
+
+        <!-- Step 2a: Your Generation - Age -->
+        <div id="step-2a" class="step">
+            <label>តើបុគ្គលនោះមានអាយុច្រើនជាង ឬតិចជាងអ្នក?</label>
+            <div class="button-options">
+                <button class="option-btn" onclick="selectAge('older')">ច្រើនជាង</button>
+                <button class="option-btn" onclick="selectAge('younger')">តិចជាង</button>
+            </div>
+        </div>
+
+        <!-- Step 2b: Parents Generation - Which Side (Mom/Dad) -->
+        <div id="step-2b" class="step">
+            <label>តើគាត់មកពីខាងម្តាយ ឬខាងឪពុក?</label>
+            <div class="button-options">
+                <button class="option-btn" onclick="selectSide('Mom')">ខាងម្តាយ</button>
+                <button class="option-btn" onclick="selectSide('Dad')">ខាងឪពុក</button>
+            </div>
+        </div>
+
+        <!-- Step 3a: Your Generation - Gender -->
+        <div id="step-3a" class="step">
+            <label>តើគាត់ជាបុរស ឬស្ត្រី?</label>
+            <div class="button-options">
+                <button class="option-btn" onclick="selectGender('male')">បុរស</button>
+                <button class="option-btn" onclick="selectGender('female')">ស្ត្រី</button>
+            </div>
+        </div>
+
+        <!-- Step 3b: Parents Generation - Sibling Gender (Bro/Sis) -->
+        <div id="step-3b" class="step">
+            <label>តើគាត់ជាបងប្អូនប្រុស ឬបងប្អូនស្រីរបស់ឪពុកម្តាយអ្នក?</label>
+            <div class="button-options">
+                <button class="option-btn" onclick="selectSiblingGender('brother')">បងប្អូនប្រុស</button>
+                <button class="option-btn" onclick="selectSiblingGender('sister')">បងប្អូនស្រី</button>
+            </div>
+        </div>
+
+        <!-- Step 4a: Your Generation - Spouse -->
+        <div id="step-4a" class="step">
+            <label>តើអ្នកចង់រកដៃគូរបស់គាត់ឬ?</label>
+            <div class="button-options">
+                <button class="option-btn" onclick="selectSpouse(null)">ទេ, គឺបុគ្គលនេះ</button>
+                <button class="option-btn" onclick="selectSpouse('spouse')">បាទ/ចាស, ជាដៃគូរបស់គាត់</button>
+            </div>
+        </div>
+
+        <!-- Step 4b: Parents Generation - Brother/Sister Age (older/younger) -->
+        <div id="step-4b" class="step">
+            <label>តើបងប្អូននោះមានអាយុច្រើនជាង ឬតិចជាងឪពុកម្តាយអ្នក?</label>
+            <div class="button-options">
+                <button class="option-btn" onclick="selectSiblingAge('older')">ច្រើនជាង</button>
+                <button class="option-btn" onclick="selectSiblingAge('younger')">តិចជាង</button>
+            </div>
+        </div>
+
+        <!-- Step 5b: Parents Generation - Spouse or Submit -->
+        <div id="step-5b" class="step">
+            <label>តើអ្នកចង់បានដៃគូរបស់គាត់ជំនួសវិញឬ?</label>
+            <div class="button-options">
+                <button class="option-btn" onclick="getTitle()">ទេ, បញ្ជូនចម្លើយនេះ</button>
+                <button class="option-btn" onclick="selectParentSpouse('spouse')">បាទ/ចាស, ដៃគូរបស់គាត់</button>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button id="prevBtn" onclick="prevStep()" style="display:none;">← ត្រឡប់ក្រោយ</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
