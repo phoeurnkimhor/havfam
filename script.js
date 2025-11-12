@@ -114,7 +114,7 @@ async function getTitle() {
     }
 
     try {
-        const response = await fetch("http://localhost:8000/get_title", {
+        const response = await fetch("https://havfam.onrender.com/get_title", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({generation: generation, path: path})
